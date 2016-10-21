@@ -1,0 +1,1 @@
+json.partial! "roomlists/roomlist", roomlist: @roomlist

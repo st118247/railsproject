@@ -1,0 +1,33 @@
+<h1>Portal Home Page Landing</h1>
+
+<% r1 = Role.find(current_user.role_id).name %>
+
+<p>
+  <% if (r1 != 'NoRole') && (current_user.banstatus != 'Banned') then %>
+
+      <% if (r1 == 'Admin') then %>
+          Admin List <%= link_to 'here', adminuser_index_path %><br>
+          <% r1 = 'Manager' %>
+      <% end %>
+
+      <% if (r1 == 'Manager') then %>
+          Manager's Room Approval <%= link_to 'here', adminuser_listroom_path %><br>
+          <% r1 = 'Staff' %>
+      <% end %>
+
+      <% if (r1 == 'Staff') then %>
+           Staff's Room List <%= link_to 'here', roomlists_path %>
+      <% end %>
+
+  <% else %>
+      <% if current_user.banstatus == 'Banned' then %>
+        Log out immediately
+
+      <% end %>
+
+      <% if r1.eql?('NoRole') then %> Please talk to your Manager after account creation
+          <% end %>
+
+  <% end %>
+
+</p>

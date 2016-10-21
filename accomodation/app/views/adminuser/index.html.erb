@@ -1,0 +1,34 @@
+<h1>Admin User Panel</h1>
+
+<p>Main page <%= link_to 'here' , adminuser_port_path %><br>
+  Manager's Room Approval <%= link_to 'here', adminuser_listroom_path %><br>
+  Staff's Room List <%= link_to 'here', roomlists_path %>
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Created on</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th>Status</th>
+    <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user1| %>
+      <tr>
+        <td><%= user1.created_at %></td>
+        <td><%= user1.email %></td>
+        <td><%= @roles.find_by(id: user1.role_id ).name %></td>
+        <td><%= user1.banstatus %></td>
+        <td > <%= button_to "Ban User", {:controller => 'adminuser', :action=> :ban, :u_id => user1.id} %></td>
+        <td > <%= button_to "un-Ban User", {:controller => 'adminuser', :action=> :unban, :u_id => user1.id} %></td>
+        <td > <%= button_to "Role Staff", {:controller => 'adminuser', :action=> :staff, :u_id => user1.id} %></td>
+        <td > <%= button_to "Role Manager", {:controller => 'adminuser', :action=> :manager, :u_id => user1.id} %></td>
+        <td > <%= button_to "Role Admin", {:controller => 'adminuser', :action=> :admin, :u_id => user1.id} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Quoteboard</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% if flash[:error] %>
+      <div id="error">
+        <%= flash[:error] %>
+      </div>
+  <% end %>
+  <div id="container">
+    <div id="user_status">
+      <% if user_signed_in? %>
+          Welcome
+          <%= current_user.email %>! Not you?
+          <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+          <%= link_to "Change your password", edit_user_registration_path %>
+      <% else %>
+          <%= link_to "Sign up", new_user_registration_path %>
+          or
+          <%= link_to "Sign in", new_user_session_path %>.
+      <% end %>
+    </div>
+    <br/>
+    <%= yield %>
+  </div>
+  </body>
+</html>

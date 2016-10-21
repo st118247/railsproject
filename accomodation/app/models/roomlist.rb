@@ -1,0 +1,4 @@
+class Roomlist < ApplicationRecord
+
+end
+
