@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'ait/dormroom'
+
   get 'adminuser/listroom'
 
   get 'adminuser/ban'

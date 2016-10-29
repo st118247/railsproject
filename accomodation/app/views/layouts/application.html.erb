@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Quoteboard</title>
+    <title>Ait Housing</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
   </head>
 
   <body>
@@ -28,6 +30,9 @@
       <% end %>
     </div>
     <br/>
+<!--# ------------- Calling the navigation bar here ---------------------->
+    <%#= render 'shared/navbar' %>
+<!------------- Calling the navigation bar here -------------------------->
     <%= yield %>
   </div>
   </body>

@@ -1,33 +1,79 @@
-<h1>Portal Home Page Landing</h1>
+
+
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+  <div class="container">
+    <h1>Welcome <%= current_user.email %></h1>
+    <p>This is the Portal page. All accessible links are displayed below.</p>
+    <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+  </div>
+</div>
+
+<div class="container">
+  <!-- Example row of columns -->
+  <div class="row">
+
 
 <% r1 = Role.find(current_user.role_id).name %>
+<% if (r1 != 'NoRole') && (current_user.banstatus != 'Banned') then %>
 
-<p>
-  <% if (r1 != 'NoRole') && (current_user.banstatus != 'Banned') then %>
+    <% if (r1 == 'Admin') then %>
+            <div class="col-md-4">
+              <h2><%= link_to 'Administrator', adminuser_index_path %></h2>
+              <p>Admin work page Functions that can be performed : <ol><li>See number of users in Role</li><li>Manage users of system</li></ol></p>
+            </div>
+        <% r1 = 'Manager' %>
+    <% end %>
 
-      <% if (r1 == 'Admin') then %>
-          Admin List <%= link_to 'here', adminuser_index_path %><br>
-          <% r1 = 'Manager' %>
-      <% end %>
+    <% if (r1 == 'Manager') then %>
+            <div class="col-md-4">
+              <h2><%= link_to 'Manager', adminuser_listroom_path %></h2>
+              <p>Manager work page Functions enabled here are : <ol><li>Accept / Reject room allocations</li><li>Accept / Reject dorm room details page [for student information] </li></ol>
+              </p>
+            </div>
+        <% r1 = 'Staff' %>
+    <% end %>
 
-      <% if (r1 == 'Manager') then %>
-          Manager's Room Approval <%= link_to 'here', adminuser_listroom_path %><br>
-          <% r1 = 'Staff' %>
-      <% end %>
+    <% if (r1 == 'Staff') then %>
+    <div class="col-md-4">
+      <h2><%= link_to 'Staff', roomlists_path %></h2>
+      <p>Staff work page Funcstions enabled are : <ol><li>Allocate / De-Allocate rooms</li><li>Maintain dorm and room detais [the dorm and room details page is accessible by all AIT]</li></ol></p>
+    </div>
+        <% end %>
 
-      <% if (r1 == 'Staff') then %>
-           Staff's Room List <%= link_to 'here', roomlists_path %>
-      <% end %>
-
-  <% else %>
-      <% if current_user.banstatus == 'Banned' then %>
+  </div>
+        <div class="row">
+          <div class="col-md-4">
+            <h2><%= link_to 'Ait Dorm Room', ait_dormroom_path %></h2>
+            <p>This is a page accessible to all AIT students to view the dorm and room details </p>
+          </div>
+        </div>
+<% else %>
+    <% if current_user.banstatus == 'Banned' then %>
         Log out immediately
 
-      <% end %>
+    <% end %>
 
-      <% if r1.eql?('NoRole') then %> Please talk to your Manager after account creation
-          <% end %>
+    <% if r1.eql?('NoRole') then %> Please talk to your Manager after account creation
+    <% end %>
 
-  <% end %>
+<% end %>
 
-</p>
+  <hr>
+
+  <footer>
+    <p>&copy; 2016 Benya & Parth Rails Company, Inc.</p>
+  </footer>
+</div> <!-- /container -->
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="../../dist/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+

@@ -6,7 +6,8 @@ class RoomlistsController < ApplicationController
   # GET /roomlists
   # GET /roomlists.json
   def index
-    @roomlists = Roomlist.where(["status != ?" , 'Waiting' ]).order(created_at: :desc)
+    #@roomlists = Roomlist.where(["status != ?" , 'Waiting' ]).order(created_at: :desc)
+    @roomlists = Roomlist.all.order(:status, created_at: :desc)
   end
 
   # GET /roomlists/1

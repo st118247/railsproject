@@ -5,7 +5,37 @@
   Staff's Room List <%= link_to 'here', roomlists_path %>
 </p>
 
-<table>
+
+  <div class="table-responsive">
+
+    <h2>Roles list</h2>
+    <table class="table table-bordered">
+      <thead class="thead-inverse">
+        <tr>
+          <th>Role Id</th>
+          <th>Role Name</th>
+          <th>Number of Users</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @roles.each do |role1| %>
+          <tr>
+              <td><%= role1.id %></td>
+              <td><%= role1.name %></td>
+              <td><%= @users.where(role_id: role1.id).count %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+
+
+<div class="table-responsive">
+<h2>AIT Housing User Control</h2>
+  <table class='table'>
+
   <thead>
     <tr>
       <th>Created on</th>
@@ -32,3 +62,4 @@
     <% end %>
   </tbody>
 </table>
+  </div>

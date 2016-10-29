@@ -4,7 +4,7 @@ class AdminuserController < ApplicationController
   #load_and_authorize_resource
 
   def index
-    @users = User.order(created_at: :desc)
+    @users = User.order(:role_id, created_at: :desc)
     @roles = Role.all
   end
 
@@ -21,8 +21,8 @@ class AdminuserController < ApplicationController
         format.html { redirect_to adminuser_port_path, notice: 'User details was successfully updated.' }
         format.json { render :show, status: :ok, location: @users }
       else
-        # format.html { render :edit }
-        # format.json { render json: @users.errors, status: :unprocessable_entity }
+        format.html { render :edit }
+        format.json { render json: @users.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -52,7 +52,7 @@ class AdminuserController < ApplicationController
     flash[:notice] = 'User Account is Active'
     redirect_to adminuser_index_path
   end
-
+##
   def staff
     user_id = params[:u_id]
     user = User.find(user_id)
