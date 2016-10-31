@@ -27,7 +27,6 @@ Rails.application.routes.draw do
   #get 'adminuser/update_status'
 
   devise_for :users
-  resources :quotations
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'adminuser#port'

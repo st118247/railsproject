@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161017032954) do
+ActiveRecord::Schema.define(version: 20161030162155) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "dorm_details", force: :cascade do |t|
+    t.integer  "versionid"
+    t.string   "dorm"
+    t.string   "roomsize"
+    t.text     "details"
+    t.integer  "rent"
+    t.text     "comments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "category"
+  end
 
   create_table "quotations", force: :cascade do |t|
     t.text     "quote"
@@ -38,6 +50,7 @@ ActiveRecord::Schema.define(version: 20161017032954) do
     t.string   "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "versionid"
   end
 
   create_table "users", force: :cascade do |t|
