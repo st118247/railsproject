@@ -1,0 +1,48 @@
+<% if studenthousinginfo.version.present? then %>
+    <%= var_version = Studenthousinginfo.where(category: studenthousinginfo.category).maximum(:version)  %>
+    <% studenthousinginfo.version = var_version + 1 %>
+<% else studenthousinginfo.version = 1 %>
+<% end %>
+
+<%= form_for(studenthousinginfo) do |f| %>
+  <% if studenthousinginfo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(studenthousinginfo.errors.count, "error") %> prohibited this studenthousinginfo from being saved:</h2>
+
+      <ul>
+      <% studenthousinginfo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :version %>
+    <%= f.text_field :version,:readonly => true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :category %>
+    <%= f.text_field :category %>
+  </div>
+
+  <div class="field">
+    <%= f.label :roomsize %>
+    <%= f.text_field :roomsize %>
+  </div>
+
+  <div class="field">
+    <%= f.label :rent %>
+    <%= f.text_field :rent %>
+  </div>
+
+  <div class="field">
+    <%= f.label :detail %>
+    <%= f.text_area :detail %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

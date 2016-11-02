@@ -2,7 +2,7 @@ class AitController < ApplicationController
   layout "aitbanner"
 
   def dormroom
-    @dormdetails = DormDetail.all
+    @dormdetails = Studenthousinginfo.where(status: 'Approved')
   end
 
 end

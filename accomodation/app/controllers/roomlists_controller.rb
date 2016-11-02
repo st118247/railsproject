@@ -8,6 +8,7 @@ class RoomlistsController < ApplicationController
   def index
     #@roomlists = Roomlist.where(["status != ?" , 'Waiting' ]).order(created_at: :desc)
     @roomlists = Roomlist.all.order(:status, created_at: :desc)
+    @studenthousinginfos = Studenthousinginfo.all
   end
 
   # GET /roomlists/1
@@ -83,6 +84,7 @@ class RoomlistsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

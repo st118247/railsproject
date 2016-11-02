@@ -1,0 +1,2 @@
+class Studenthousinginfo < ApplicationRecord
+end

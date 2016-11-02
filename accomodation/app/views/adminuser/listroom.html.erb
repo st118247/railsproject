@@ -1,10 +1,15 @@
-<h1>Manager's Room Approval</h1>
-
 <p>Main page <%= link_to 'here' , adminuser_port_path %><br>
   Staff's Room List <%= link_to 'here', roomlists_path %></p>
 <% serial = 0 %>
+<br>
+<br>
 
-<table>
+<h1>Manager's WorkFlow Approval</h1>
+<br>
+<br>
+<h3>Room Allocation WorkFlow</h3>
+<div class="table-responsive">
+  <table class="table table-bordered">
   <thead>
     <tr>
       <th>Serial</th>
@@ -33,3 +38,38 @@
     <% end %>
   </tbody>
 </table>
+</div>
+
+<br>
+<br>
+
+<h3>Category information workflow </h3>
+<div class="table-responsive">
+  <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Version</th>
+      <th>Category</th>
+      <th>Roomsize</th>
+      <th>Rent</th>
+      <th>Detail</th>
+      <th>status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @housinginfo.each do |housinginfo| %>
+    <tr>
+      <th><%= housinginfo.version %></th>
+      <th><%= housinginfo.category %></th>
+      <th><%= housinginfo.roomsize %></th>
+      <th><%= housinginfo.rent %></th>
+      <th><%= housinginfo.detail %></th>
+      <th><%= housinginfo.status %></th>
+      <td > <%= button_to "Approve", {:controller => 'adminuser', :action=> :wf_approve, :category => housinginfo.category ,:version => housinginfo.version } %></td>
+      <td > <%= button_to "Reject", {:controller => 'adminuser', :action=> :wf_reject, :category => housinginfo.category ,:version => housinginfo.version } %></td>
+    </tr>
+      <% end %>
+  </tbody>
+</table>
+</div>

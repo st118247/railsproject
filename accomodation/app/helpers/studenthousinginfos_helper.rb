@@ -1,0 +1,2 @@
+module StudenthousinginfosHelper
+end

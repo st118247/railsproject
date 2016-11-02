@@ -1,0 +1,1 @@
+json.array! @studenthousinginfos, partial: 'studenthousinginfos/studenthousinginfo', as: :studenthousinginfo

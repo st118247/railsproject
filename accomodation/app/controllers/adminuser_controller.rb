@@ -83,7 +83,23 @@ class AdminuserController < ApplicationController
 
   def listroom
     @rooms = Roomlist.where(status: 'Waiting')
+    @housinginfo = Studenthousinginfo.where(status: 'Waiting for Approval')
+  end
 
+  def wf_approve
+    @housinginfoapprove = Studenthousinginfo.find_by(version: params[:version], category: params[:category])
+    @housinginfoapprove.status = "Approved"
+    @housinginfoapprove.save
+    flash[:notice] = 'Approved the change'
+    redirect_to adminuser_listroom_url
+  end
+
+  def wf_reject
+    @housinginfoapprove = Studenthousinginfo.find_by(version: params[:version], category: params[:category])
+    @housinginfoapprove.status = "Rejected"
+    @housinginfoapprove.save
+    flash[:notice] = 'Rejected the change'
+    redirect_to adminuser_listroom_url
   end
 
   private

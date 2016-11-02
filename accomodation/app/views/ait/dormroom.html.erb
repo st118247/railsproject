@@ -11,6 +11,7 @@
       <th width="15%">Room Rent [Thai Baht] </th>
       <!--<th width="5%">Electricity Meter [Shared/Seperate] </th>-->
       <th width="30%">Sample Room Layout</th>
+      <th width="20%">Comments</th>
     </tr>
   </thead>
   <tbody>
@@ -18,9 +19,9 @@
     <% @dormdetails.each do |detail| %>
       <tr>
         <td><%= serialno = serialno + 1 %></td>
-        <td><%= detail.dorm %></td>
+        <td><%= detail.category %></td>
         <td><%= detail.roomsize %></td>
-        <td><%= detail.details %></td>
+        <td><%= detail.detail %></td>
         <td><%= detail.rent %></td>
         <td><% %></td>
         <td><% %></td>

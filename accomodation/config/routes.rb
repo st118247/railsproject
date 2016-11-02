@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :studenthousinginfos
   get 'ait/dormroom'
 
   get 'adminuser/listroom'
@@ -17,8 +18,14 @@ Rails.application.routes.draw do
 
   get 'adminuser/admin'
   post 'adminuser/admin'
+
+  post 'studenthousinginfos/newedit'
   
   resources :roomlists
+  resource :dorm_detials, path: '/roomlists'
+
+  post 'adminuser/wf_approve'
+  post 'adminuser/wf_reject'
 
   get 'adminuser/port'
   get 'adminuser/index'

@@ -9,7 +9,7 @@
   <h3>Allocate Student to Room <%= link_to 'here', new_roomlist_path %> <br>
     </h3>
 </div>
-<table border="6">
+<table class="table table-bordered">
   <thead>
     <tr>
       <th>Serial</th>
@@ -17,12 +17,11 @@
       <th>Cat</th>
       <th>Dorm</th>
       <th>Room</th>
-      <th>a/b/c</th>
+      <th>Section a/b/c</th>
       <!--<th>Abc</th>-->
       <th>Resident id</th>
       <!--<th>Studentid</th>-->
       <th>Status</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -44,3 +43,9 @@
     <% end %>
   </tbody>
 </table>
+<br>
+<br>
+
+<% s = 0 %>
+<h3>Student housing Info</h3>
+<%= render 'form_studenthousinginfos_index', roomlist: @roomlist %>

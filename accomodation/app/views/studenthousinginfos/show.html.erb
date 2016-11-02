@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Version:</strong>
+  <%= @studenthousinginfo.version %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @studenthousinginfo.category %>
+</p>
+
+<p>
+  <strong>Roomsize:</strong>
+  <%= @studenthousinginfo.roomsize %>
+</p>
+
+<p>
+  <strong>Rent:</strong>
+  <%= @studenthousinginfo.rent %>
+</p>
+
+<p>
+  <strong>Detail:</strong>
+  <%= @studenthousinginfo.detail %>
+</p>
+
+<%= link_to 'Edit', edit_studenthousinginfo_path(@studenthousinginfo) %> |
+<%= link_to 'Back', roomlists_path %>

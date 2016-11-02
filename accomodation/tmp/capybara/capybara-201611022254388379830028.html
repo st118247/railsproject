@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ait Housing</title>
+
+    
+
+    <link rel="stylesheet" media="all" href="/assets/application-895ae8ca2b3268d6153266e6779a6d89796096e2da27247f1558a72aa570cff9.css" data-turbolinks-track="reload" />
+    <script src="/assets/application-d3ff17f05d89d02d91e7984b377f8483cf93c0564325b1dd1d7d8389e7e08bc5.js" data-turbolinks-track="reload"></script>
+
+
+  </head>
+
+  <body>
+  <div id="container">
+    <div id="user_status">
+          <a href="/users/sign_up">Sign up</a>
+          or
+          <a href="/users/sign_in">Sign in</a>.
+    </div>
+    <br/>
+<!--# ------------- Calling the navigation bar here ---------------------->
+<!------------- Calling the navigation bar here -------------------------->
+    <h2>Log in</h2>
+
+<form class="new_user" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" />
+  <div class="field">
+    <label for="user_email">Email</label><br />
+    <input autofocus="autofocus" type="email" value="admin2@ait.asia" name="user[email]" id="user_email" />
+  </div>
+
+  <div class="field">
+    <label for="user_password">Password</label><br />
+    <input autocomplete="off" type="password" name="user[password]" id="user_password" />
+  </div>
+
+    <div class="field">
+      <input name="user[remember_me]" type="hidden" value="0" /><input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me" />
+      <label for="user_remember_me">Remember me</label>
+    </div>
+
+  <div class="actions">
+    <input type="submit" name="commit" value="Log in" data-disable-with="Log in" />
+  </div>
+</form>
+
+  <a href="/users/sign_up">Sign up</a><br />
+
+  <a href="/users/password/new">Forgot your password?</a><br />
+
+
+
+
+
+  </div>
+  </body>
+</html>
