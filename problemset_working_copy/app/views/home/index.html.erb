@@ -6,11 +6,11 @@
 	<br>
 	<br>
 	<% if (current_user.status == 'active') %>
-		<% if (current_user.officer_role_id == 4 || 3 || 2) %>
+	<% if (current_user.officer_role_id == 1) || (current_user.officer_role_id == 2 ) || (current_user.officer_role_id == 5 ) %>
 			<li><%= link_to "Supervisor Page", home_supervisor_path %></li>
 			<li><%= link_to "Staff Page", home_staff_path %></li>
 	  	<% end %>
-	  	<% if (current_user.officer_role_id == 5 ) %>
+	  	<% if (current_user.officer_role_id == 3 ) %>
 			<li><%= link_to "Staff Page", home_staff_path %></li>
 	  	<% end %>
 	<% end %>

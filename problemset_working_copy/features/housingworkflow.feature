@@ -30,12 +30,16 @@ Feature: Housing Workflow
     And I click on the Back Link on the Staff Page to go to Main Page
     When I go to the Index page I can see a link to the Suervisor page
     Then I click on the Supervisor Page link to go to Spervisor Page
-    
     And I should see the details of the New Housing Information
     And I should see a buton to Approve the Information
-    When I click on the button
-    Then the Information should move out of the Manager queue
-    Then I clik on the Main Page
-    When I click on the Staff Page
-    And I should see the information with Approved status
-
+    When I click on the Approve button
+    Then the Housing Information will not be present in the queue
+    And I can see Back link on the Supervisor Page to go to Main Page
+    And I click the Back link on the Supervisor Page to go to Main Page
+    When on the Main Page I click on the link of Staff page
+    Then I should see the information with Approved status
+    And I click on the Back Link on the Staff Page to go to Main Page
+    And I can see a Link to the Puclic Page
+    When I click on the Link to the Public Page
+    Then I visit the Public Page to verify the Information
+    And I can see the New Housing Information
