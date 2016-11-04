@@ -1,0 +1,17 @@
+<h1>Accommodation office for staffs</h1>
+<ul>
+	<li><%= link_to "List of users", administration_userlist_path %></li>
+	<li><%= link_to "Statistics", administration_statistics_path %></li>
+	<li><%= link_to "Public Page", home_public_path , :target => "_blank"%></li>
+	<br>
+	<br>
+	<% if (current_user.status == 'active') %>
+		<% if (current_user.officer_role_id == 4 || 3 || 2) %>
+			<li><%= link_to "Supervisor Page", home_supervisor_path %></li>
+			<li><%= link_to "Staff Page", home_staff_path %></li>
+	  	<% end %>
+	  	<% if (current_user.officer_role_id == 5 ) %>
+			<li><%= link_to "Staff Page", home_staff_path %></li>
+	  	<% end %>
+	<% end %>
+</ul>

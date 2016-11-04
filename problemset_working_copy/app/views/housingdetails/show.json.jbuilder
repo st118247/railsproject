@@ -1,0 +1,1 @@
+json.partial! "housingdetails/housingdetail", housingdetail: @housingdetail

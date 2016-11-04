@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Versionid:</strong>
+  <%= @housingdetail.versionid %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @housingdetail.category %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @housingdetail.size %>
+</p>
+
+<p>
+  <strong>Rent:</strong>
+  <%= @housingdetail.rent %>
+</p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @housingdetail.details %>
+</p>
+
+<%= link_to 'Edit', edit_housingdetail_path(@housingdetail) %> |
+<%#= link_to 'Back', housingdetails_path %>
+<%= link_to 'Back', home_staff_path %>

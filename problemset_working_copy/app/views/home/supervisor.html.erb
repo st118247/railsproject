@@ -1,0 +1,34 @@
+<h1>Home#supervisor</h1>
+<%= link_to 'Back', home_index_path %>
+<br>
+<br>
+<table>
+  <thead>
+    <tr>
+      <th>Versionid</th>
+      <th>Category</th>
+      <th>Size</th>
+      <th>Rent</th>
+      <th>Details</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @housingdetails.each do |housingdetail| %>
+      <tr>
+        <td><%= housingdetail.versionid %></td>
+        <td><%= housingdetail.category %></td>
+        <td><%= housingdetail.size %></td>
+        <td><%= housingdetail.rent %></td>
+        <td><%= housingdetail.details %></td>
+        <td><%= housingdetail.status %></td>
+        <td > <%= button_to "Approve", {:controller => 'home', :action=> :wf_approve, :id => housingdetail.id } %></td>
+      <td > <%= button_to "Reject", {:controller => 'home', :action=> :wf_reject, :id => housingdetail.id } %></td>
+        <td><%#= link_to 'Show', housingdetail %></td>
+        <td><%#= link_to 'Edit', edit_housingdetail_path(housingdetail) %></td>
+        <td><%#= link_to 'Destroy', housingdetail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

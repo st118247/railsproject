@@ -1,0 +1,50 @@
+<% if housingdetail.versionid.present? then %>
+    <%= var_versionid = Housingdetail.where(category: housingdetail.category).maximum(:versionid)  %>
+    <% housingdetail.versionid = var_versionid + 1 %>
+<% else housingdetail.versionid = 1 %>
+<% end %>
+
+<%= form_for(housingdetail) do |f| %>
+  <% if housingdetail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(housingdetail.errors.count, "error") %> prohibited this housingdetail from being saved:</h2>
+
+      <ul>
+      <% housingdetail.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :versionid %>
+    <%= f.number_field :versionid, :readonly => true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :category %>
+    <%= f.text_field :category %>
+  </div>
+
+  <div class="field">
+    <%= f.label :size %>
+    <%= f.text_field :size %>
+  </div>
+
+  <div class="field">
+    <%= f.label :rent %>
+    <%= f.text_field :rent %>
+  </div>
+
+  <div class="field">
+    <%= f.label :details %>
+    <%= f.text_area :details %>
+  </div>
+
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

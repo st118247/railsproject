@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  versionid: 1
+  category: MyString
+  size: MyString
+  rent: MyString
+  details: MyText
+
+two:
+  versionid: 1
+  category: MyString
+  size: MyString
+  rent: MyString
+  details: MyText

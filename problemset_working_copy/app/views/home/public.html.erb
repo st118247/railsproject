@@ -1,0 +1,24 @@
+<h1>AIT Housing Details</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Size</th>
+      <th>Rent</th>
+      <th>Details</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @housingdetails.each do |housingdetail| %>
+      <tr>
+        <td><%= housingdetail.category %></td>
+        <td><%= housingdetail.size %></td>
+        <td><%= housingdetail.rent %></td>
+        <td><%= housingdetail.details %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
