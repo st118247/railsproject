@@ -1,0 +1,64 @@
+<br>
+<br>
+<div class="container">
+<h1>Admin User Panel</h1>
+<br>
+<br>
+  <div class="table-responsive">
+
+    <h2>Roles list</h2>
+    <table class="table table-bordered">
+      <thead class="thead-inverse">
+        <tr>
+          <th>Role Id</th>
+          <th>Role Name</th>
+          <th>Number of Users</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @roles.each do |role1| %>
+          <tr>
+              <td><%= role1.id %></td>
+              <td><%= role1.name %></td>
+              <td><%= @users.where(role_id: role1.id).count %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+
+
+<div class="table-responsive">
+<h2>AIT Housing User Control</h2>
+  <table class='table'>
+
+  <thead>
+    <tr>
+      <th>Created on</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th>Status</th>
+    <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user1| %>
+      <tr>
+        <td><%= user1.created_at %></td>
+        <td><%= user1.email %></td>
+        <td><%= @roles.find_by(id: user1.role_id ).name %></td>
+        <td><%= user1.banstatus %></td>
+        <td > <%= button_to "Ban User", {:controller => 'adminuser', :action=> :ban, :u_id => user1.id} %></td>
+        <td > <%= button_to "un-Ban User", {:controller => 'adminuser', :action=> :unban, :u_id => user1.id} %></td>
+        <td > <%= button_to "Role Staff", {:controller => 'adminuser', :action=> :staff, :u_id => user1.id} %></td>
+        <td > <%= button_to "Role Manager", {:controller => 'adminuser', :action=> :manager, :u_id => user1.id} %></td>
+        <td > <%= button_to "Role Admin", {:controller => 'adminuser', :action=> :admin, :u_id => user1.id} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+  </div>
+  </div>

@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+<h1>Staff Page Roomlists</h1>
+
+<!--<p>Main page <%#= link_to 'here' , adminuser_port_path %></p>-->
+<% sno = 0 %>
+
+<div>
+  <h3>Allocate Student to Room <%= link_to 'here', new_roomlist_path %> <br>
+    </h3>
+</div>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Serial</th>
+      <th>Created</th>
+      <th>Cat</th>
+      <th>Dorm</th>
+      <th>Room</th>
+      <th>Section a/b/c</th>
+      <!--<th>Abc</th>-->
+      <th>Resident id</th>
+      <!--<th>Studentid</th>-->
+      <th>Status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @roomlists.each do |roomlist| %>
+      <tr>
+        <td><%= sno = sno + 1 %></td>
+        <td><%= roomlist.created_at %></td>
+        <td><%= roomlist.cat %></td>
+        <td><%= roomlist.dorm %></td>
+        <td><%= roomlist.room %></td>
+        <td><%= roomlist.abc %></td>
+        <td><%= roomlist.studentid %></td>
+        <td><%= roomlist.status %></td>
+        <td><%= link_to 'Show', roomlist %></td>
+        <td><%= link_to 'Edit', edit_roomlist_path(roomlist) %></td>
+        <td><%= link_to 'Destroy', roomlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<br>
+
+<% s = 0 %>
+<h3>Student housing Info</h3>
+<%= render 'form_studenthousinginfos_index', roomlist: @roomlist %>
+  </div>

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cat:</strong>
+  <%= @roomlist.cat %>
+</p>
+
+<p>
+  <strong>Dorm:</strong>
+  <%= @roomlist.dorm %>
+</p>
+
+<p>
+  <strong>Room:</strong>
+  <%= @roomlist.room %>
+</p>
+
+<p>
+  <strong>Abc:</strong>
+  <%= @roomlist.abc %>
+</p>
+
+<p>
+  <strong>Studentid:</strong>
+  <%= @roomlist.studentid %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @roomlist.status %>
+</p>
+
+<%= link_to 'Edit', edit_roomlist_path(@roomlist) %> |
+<%= link_to 'Back', roomlists_path %>

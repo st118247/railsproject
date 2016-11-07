@@ -1,0 +1,75 @@
+
+<% serial = 0 %>
+<br>
+<br>
+<div class="container">
+<h1>Manager's WorkFlow Approval</h1>
+<br>
+<br>
+<h3>Room Allocation WorkFlow</h3>
+<div class="table-responsive">
+  <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Serial</th>
+      <th>Category</th>
+      <th>Dorm</th>
+      <th>Room No</th>
+      <th>Room Segment</th>
+      <th>Room Allocation</th>
+      <th>Action</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rooms.each do |room| %>
+    <tr>
+      <td><%=serial = serial + 1 %></td>
+      <td><%=room.cat%></td>
+      <td><%=room.dorm%></td>
+      <td><%=room.room%></td>
+      <td><%=room.abc%></td>
+      <td><%=room.studentid%></td>
+      <td>Double click to change status =></td>
+      <td><%= best_in_place room, :status %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<br>
+<br>
+
+<h3>Category information workflow </h3>
+<div class="table-responsive">
+  <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Version</th>
+      <th>Category</th>
+      <th>Roomsize</th>
+      <th>Rent</th>
+      <th>Detail</th>
+      <th>status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @housinginfo.each do |housinginfo| %>
+    <tr>
+      <th><%= housinginfo.version %></th>
+      <th><%= housinginfo.category %></th>
+      <th><%= housinginfo.roomsize %></th>
+      <th><%= housinginfo.rent %></th>
+      <th><%= housinginfo.detail %></th>
+      <th><%= housinginfo.status %></th>
+      <td > <%= button_to "Approve", {:controller => 'adminuser', :action=> :wf_approve, :category => housinginfo.category ,:version => housinginfo.version } %></td>
+      <td > <%= button_to "Reject", {:controller => 'adminuser', :action=> :wf_reject, :category => housinginfo.category ,:version => housinginfo.version } %></td>
+    </tr>
+      <% end %>
+  </tbody>
+</table>
+</div>
+  </div>

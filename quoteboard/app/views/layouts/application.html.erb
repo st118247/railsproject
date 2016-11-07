@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ait Housing</title>
+
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--# ------------- Calling the navigation bar here ---------------------->
+    <%= render 'shared/navbar' %>
+    <!------------- Calling the navigation bar here -------------------------->
+    <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
+      <TR>
+        <TD ROWSPAN=3 WIDTH=120><IMG SRC="http://www.asdu.ait.ac.th/lib/graphics/logos/aitlogo.gif" BORDER=0 HEIGHT=75 WIDTH=120></TD>
+      </TR>
+      <TR>
+        <TD BGCOLOR="#003000"><IMG SRC="http://www.asdu.ait.ac.th/lib/graphics/banners/aitfullname.gif" BORDER=0 HEIGHT=28 WIDTH=485></TD>
+      </TR>
+    </TABLE>
+
+  </head>
+
+  <body>
+    <% if flash[:error] %>
+      <div id="error">
+        <%= flash[:error] %>
+      </div>
+  <% end %>
+  <div id="container">
+    <div id="user_status">
+      <%# if user_signed_in? %>
+          <!--Welcome-->
+          <%#= current_user.email %>
+      <!--!-->
+      <!--Not you?-->
+          <%#= link_to "Sign out", destroy_user_session_path, method: :delete %>
+          <%#= link_to "Change your password", edit_user_registration_path %>
+      <%# else %>
+          <%#= link_to "Sign up", new_user_registration_path %>
+          <!--or-->
+          <%#= link_to "Sign in", new_user_session_path %>
+      <%# end %>
+    </div>
+    <br/>
+    <%= yield %>
+  </div>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">&copy; 2016 Benya & Parth Rails Company, Inc.</p>
+      </div>
+    </footer>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+  <script src="../../dist/js/bootstrap.min.js"></script>
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<h1>Category Details</h1>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th width="5%">Serial</th>
+      <th width="5%">Category</th>
+      <th width="10%">Room Size</th>
+      <th width="25%">Details</th>
+      <th width="15%">Room Rent [Thai Baht] </th>
+      <!--<th width="5%">Electricity Meter [Shared/Seperate] </th>-->
+      <th width="30%">Sample Room Layout</th>
+      <th width="20%">Comments</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% serialno = 0 %>
+    <% @dormdetails.each do |detail| %>
+      <tr>
+        <td><%= serialno = serialno + 1 %></td>
+        <td><%= detail.category %></td>
+        <td><%= detail.roomsize %></td>
+        <td><%= detail.detail %></td>
+        <td><%= detail.rent %></td>
+        <td><% %></td>
+        <td><% %></td>
+      </tr>
+    <% end %>
+    <tr>
+      <td>1</td>
+      <td>1</td>
+      <td>33 sq.meters</td>
+      <td>Single roolm, shared bathroom toilet, 1 Fan, 1 table, 1 chair, 1 bed with mattress</td>
+      <td>2000</td>
+      <!--<td>Shared</td>-->
+      <td><%= image_tag("cat1.jpg" , :image_alt =>'rails.png', :width=>"50%", :height=>"50%") %></td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>1</td>
+      <td>33 sq.meters</td>
+      <td>Single roolm, shared bathroom toilet, 1 Fan, 1 table, 1 chair, 1 bed with mattress</td>
+      <td>2000</td>
+      <!--<td>Shared</td>-->
+      <td><%= image_tag("cat1.jpg" , :image_alt =>'rails.png', :width=>"50%", :height=>"50%") %></td>
+    </tr>
+  </tbody>
+</table>

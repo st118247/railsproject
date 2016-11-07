@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <TITLE>Asian Institute of Technology (AIT) - Category Housing Information</TITLE>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">AIT Housing</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Sign up", new_user_registration_path %></li>
+            <li><%= link_to "Sign in", new_user_session_path %></li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+
+  <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
+    <TR>
+      <TD ROWSPAN=3 WIDTH=120>
+        <IMG SRC="http://www.asdu.ait.ac.th/lib/graphics/logos/aitlogo.gif" BORDER=0 HEIGHT=75 WIDTH=120></TD>
+    </TR>
+    <TR>
+      <TD BGCOLOR="#003000">
+        <IMG SRC="http://www.asdu.ait.ac.th/lib/graphics/banners/aitfullname.gif" BORDER=0 HEIGHT=28 WIDTH=485></TD>
+    </TR>
+  </TABLE>
+
+</head>
+
+
+<BODY>
+
+<!-- Banner -->
+<!-- Banner -->
+<br>
+
+
+
+
+<%= yield %>
+
+</body>

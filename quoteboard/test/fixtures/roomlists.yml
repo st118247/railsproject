@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cat: MyString
+  dorm: MyString
+  room: MyString
+  abc: MyString
+  studentid: MyString
+  status: MyString
+
+two:
+  cat: MyString
+  dorm: MyString
+  room: MyString
+  abc: MyString
+  studentid: MyString
+  status: MyString

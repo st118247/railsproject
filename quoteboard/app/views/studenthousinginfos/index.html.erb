@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Studenthousinginfos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Version</th>
+      <th>Category</th>
+      <th>Roomsize</th>
+      <th>Rent</th>
+      <th>Detail</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @studenthousinginfos.each do |studenthousinginfo| %>
+      <tr>
+        <td><%= studenthousinginfo.version %></td>
+        <td><%= studenthousinginfo.category %></td>
+        <td><%= studenthousinginfo.roomsize %></td>
+        <td><%= studenthousinginfo.rent %></td>
+        <td><%= studenthousinginfo.detail %></td>
+        <td><%= link_to 'Show', studenthousinginfo %></td>
+        <td><%= link_to 'Edit', edit_studenthousinginfo_path(studenthousinginfo) %></td>
+        <td><%= link_to 'Destroy', studenthousinginfo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Studenthousinginfo', new_studenthousinginfo_path %>
